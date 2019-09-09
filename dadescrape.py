@@ -14,13 +14,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import pandas as pd
-from pandas import ExcelWriter
-from pandas import ExcelFile
 from bs4 import BeautifulSoup
 
 
 # Read Data from Excel Column Account Number
-df = pd.read_excel('/home/kit/Downloads/Public-CertlistPaid_Unpd.xlsx', sheet_name='Sheet1') # getting FileNot Found Error
+df = pd.read_excel('/home/kit/Downloads/Public-CertlistPaid_Unpd.xlsx', sheet_name='Sheet1') # getting FileNotFound Error
 
 
 # Selenium will access the website and enter the folio numbers to search page
