@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 
 
 # Read Data from Excel Column Account Number
-df = pd.read_excel('/home/kit/Downloads/Public-CertlistPaid_Unpd.xlsx', sheet_name='Sheet1') # getting FileNotFound Error
+df = pd.read_excel('/home/kit/Downloads/Public-CertlistPaid_Unpd.xlsx', sheet_name='Sheet1')
 
 
 # Selenium will access the website and enter the folio numbers to search page
@@ -29,10 +29,9 @@ for folio in df['Account Number']:
     search_bar = driver.find_element_by_id('search_box')
     search_bar.send_keys(folio)
     search_bar.send_keys((Keys.RETURN))
-    element = WebDriverWait(driver, 6).until(
+    element = WebDriverWait(driver, 5).until(
         EC.visibility_of_element_located((By.XPATH, '//*[@id="property_info"]')))
 
 # Scrape all needed info
     scrape_page = driver.page_source
     soup = BeautifulSoup(scrape_page, 'lxml')
-
